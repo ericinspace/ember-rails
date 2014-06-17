@@ -1,4 +1,5 @@
 /* global require */
+var Router = require('ember-rails/router')['default'];
 
 var Application = require('ember-rails/app')['default'];
 var Router = require('ember-rails/router')['default'];

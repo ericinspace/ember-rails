@@ -18,7 +18,7 @@ module('Integration - Speaker Page', {
 			},
 			{
 				id: 3,
-				name: 'Edward Scissorhands'
+				name: 'Zeke the Plumber'
 			},
 		];
 
@@ -54,9 +54,23 @@ test('Should allow navigation to the speakers page from the landing page', funct
 });
 
 test('Should list all speakers', function() {
-	visit('/').then(function(){
-		click('a:contains("Speakers")').then(function() {
-			equal(find('h3').text(), 'Speakers');
+	visit('/speakers').then(function() {
+		equal(find('a:contains("Bobbum Man")').length, 1);
+		equal(find('a:contains("Edward Scissorhands")').length, 1);
+		equal(find('a:contains("Zeke the Plumber")').length, 1);
+	});
+});
+
+test('Should allow navigation to a speaker page', function(){
+	visit('/speakers').then(function() {
+		click('a:contains("Bobbum Man")').then(function() {
+			equal(find('h3').text(), 'Bobbum Man');
 		});
+	});
+});
+
+test('Should allow visiting a speaker page directly', function() {
+	visit('/speakers/1').then(function() {
+		equal(find('h3').text(), 'Bobbum Man');
 	});
 });

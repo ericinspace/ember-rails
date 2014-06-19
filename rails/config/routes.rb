@@ -53,4 +53,10 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+	# Add the speakers resource under an api namespace
+	namespace :api do
+		resources :speakers
+	end
 end
+
